@@ -1,0 +1,16 @@
+local/
+.vscode/
+.eslintrc.json
+.prettierrc
+.jshintrc
+tests/
+__tests__/
+coverage/
+jest.config.js
+images/
+/*
+/*/
+
+!/dist
+!package.json
+!README.md
