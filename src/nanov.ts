@@ -24,11 +24,11 @@ export async function getVersion(
   packageName: string,
   currentVersion: string,
   options: Options
-): Promise<null | boolean | Result> {
+): Promise<object | boolean | Result> {
   const _options = await parseOptions(options);
 
   if (!useCache(_options.cache, _options.cacheTime)) {
-    return null;
+    return {};
   }
 
   if (!checkVersionFormat(currentVersion)) {
@@ -41,7 +41,7 @@ export async function getVersion(
     return await compareVersions(currentVersion, latestVersion, packageName);
   } catch (error) {
     console.error(error);
-    return null;
+    return {};
   }
 }
 

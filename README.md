@@ -109,8 +109,8 @@ false (boolean)
   packageName: string
 }: object
 
-// if hit the cache will skip the http request and return null
-null
+// if hit the cache will skip the http request and return empty object
+{} (empty object)
 
 ```
 
