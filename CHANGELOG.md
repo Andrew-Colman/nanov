@@ -1,3 +1,10 @@
+# 1.0.1
+
+Fix: TypeError: Cannot destructure property 'latestVersion' of 'object null' as it is null. (when using cache)
+(now returning an empty object)
+
+Fix: import / require mappings
+
 # 1.0.0
 
 Stable release 🥳
