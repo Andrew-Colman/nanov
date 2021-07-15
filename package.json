@@ -1,23 +1,28 @@
 {
   "name": "nanov",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "source": "./src/nanov.ts",
   "main": "./dist/nanov.js",
-  "module": "./dist/nanov.esm.js",
-  "umd:main": "./dist/nanov.umd.js",
-  "unpkg": "dist/nanov.umd.js",
+  "module": "./dist/nanov.mjs",
   "types": "dist/nanov.d.ts",
-  "exports": "./dist/nanov.mjs",
+  "exports": {
+    "require": "./dist/nanov.js",
+    "import": "./dist/nanov.mjs",
+    "default": "./dist/nanov.mjs",
+    "node": "./dist/nanov.mjs"
+  },
   "repository": "https://github.com/Andrew-Colman/nanov",
   "author": "Andrew Colman",
   "license": "MIT",
   "scripts": {
     "prepublishOnly": "npm run build",
-    "build": "microbundle --target node --compress"
+    "prebuild": "rimraf dist",
+    "build": "microbundle --target node --compress --format esm,cjs"
   },
   "devDependencies": {
     "@types/node": "^16.3.1",
     "microbundle": "^0.13.3",
+    "rimraf": "^3.0.2",
     "typescript": "^4.3.5"
   }
 }
