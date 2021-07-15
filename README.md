@@ -146,6 +146,14 @@ getVersion("my-package", version).then(({ latestVersion }) => {
 });
 ```
 
+Typescript
+
+```ts
+const { latestVersion } = (await getVersion('my-package', currentVersion)) as Result;
+
+if (latestVersion) console.log('new version available'),
+```
+
 Catch
 
 > always catch errors if you want to prevent your program from stopping (for possible errors related with getVersion)
