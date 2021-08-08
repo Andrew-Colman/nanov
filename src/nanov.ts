@@ -131,5 +131,5 @@ function writeCache(cachePath: string) {
 }
 
 export function checkVersionFormat(currentVersion: string) {
-  return /^([0-9]\.[0-9]\.[0-9])/.test(currentVersion);
+  return /^([0-9]*\.[0-9]*\.[0-9]*)/.test(currentVersion);
 }
