@@ -1,3 +1,9 @@
+# 1.0.2
+
+Fix: `checkVersionFormat` function to allow any number of digits
+
+> example: 1.67.93
+
 # 1.0.1
 
 Fix: TypeError: Cannot destructure property 'latestVersion' of 'object null' as it is null. (when using cache)
