@@ -14,6 +14,15 @@
   "repository": "https://github.com/Andrew-Colman/nanov",
   "author": "Andrew Colman",
   "license": "MIT",
+  "keywords": [
+    "nanov",
+    "latest version",
+    "semantic version",
+    "version check",
+    "get version",
+    "verify version",
+    "global package version"
+  ],
   "scripts": {
     "prepublishOnly": "npm run build",
     "prebuild": "rimraf dist",
