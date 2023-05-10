@@ -3,7 +3,7 @@
 <!-- [<img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/Andrew-Colman/nanov/Node.js%20CI">](../../actions) -->
 
 [<img alt="npm" src="https://img.shields.io/npm/dt/nanov?logo=npm">](https://npmjs.com/package/nanov)
-<img alt="Maintened" src="https://img.shields.io/maintenance/yes/2024>
+<img alt="Maintened" src="https://img.shields.io/maintenance/yes/2024">
 
 <br>
 
