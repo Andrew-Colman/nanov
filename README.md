@@ -3,19 +3,19 @@
 <!-- [<img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/Andrew-Colman/nanov/Node.js%20CI">](../../actions) -->
 
 [<img alt="npm" src="https://img.shields.io/npm/dt/nanov?logo=npm">](https://npmjs.com/package/nanov)
-<img alt="Maintened" src="https://img.shields.io/maintenance/yes/2022">
+<img alt="Maintened" src="https://img.shields.io/maintenance/yes/2024>
 
 <br>
 
-- 📦 Get the latest version for your **package** (from npm)
+-   📦 Get the latest version for your **package** (from npm)
 
-- 🌐 Great for global installation packages `-g`
+-   🌐 Great for global installation packages `-g`
 
-- ✌️ Semantic versions
+-   ✌️ Semantic versions
 
-- 0️⃣ Zero dependencies
+-   0️⃣ Zero dependencies
 
-- 🚀 Small and fast (~ 1 kbytes)
+-   🚀 Small and fast (~ 1 kbytes)
 
 <div align="center">
 
@@ -84,12 +84,12 @@ getVersion("my-package-name", currentVersion)
 
 ```js
 const { isMajor, isMinor, isPatch, latestVersion } = await getVersion(
-  "my-package",
-  currentVersion
+    "my-package",
+    currentVersion
 );
 
 if (isMajor || isMinor || isPatch)
-  console.log("new version available: ", latestVersion);
+    console.log("new version available: ", latestVersion);
 
 //further code ....
 ```
@@ -100,7 +100,7 @@ if (isMajor || isMinor || isPatch)
 // if the latest version is the current version: will result in:
 false (boolean)
 
-// if the latest version is greather than the current version
+// if the latest version is greater than the current version
 {
   isMajor: boolean, // 1.0.0 > 0.0.0
   isMinor: boolean, // 0.1.0 > 0.0.0
@@ -136,13 +136,15 @@ getVersion(packageName: string , currentVersion: string , options: object)
 }
 ```
 
+> the cache path is OS-temp-folder / nanov /packageName@currentVersion.cache.json
+
 ## Examples
 
 Simple
 
 ```js
 getVersion("my-package", version).then(({ latestVersion }) => {
-  if (latestVersion) console.log("new version available: ", latestVersion);
+    if (latestVersion) console.log("new version available: ", latestVersion);
 });
 ```
 
@@ -160,12 +162,13 @@ Catch
 
 ```js
 getVersion("my-package", version)
-  .then(({ latestVersion }) => {
-    if (latestVersion) console.log("new version available: ", latestVersion);
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+    .then(({ latestVersion }) => {
+        if (latestVersion)
+            console.log("new version available: ", latestVersion);
+    })
+    .catch((err) => {
+        console.log(err);
+    });
 ```
 
 No cache (will do http request everytime)
@@ -174,9 +177,9 @@ No cache (will do http request everytime)
 
 ```js
 getVersion(packageName, currentVersion, {
-  cache: false,
+    cache: false,
 }).then((res, latestVersion) => {
-  if (res) console.log("new version available: ", latestVersion);
+    if (res) console.log("new version available: ", latestVersion);
 });
 ```
 
@@ -184,9 +187,9 @@ Use cache for 1 hour
 
 ```js
 getVersion(packageName, currentVersion, {
-  cacheTime: 1,
+    cacheTime: 1,
 }).then(({ latestVersion }) => {
-  if (latestVersion) console.log("new version available: ", latestVersion);
+    if (latestVersion) console.log("new version available: ", latestVersion);
 });
 ```
 
@@ -194,18 +197,18 @@ Any (Async / await)
 
 ```js
 const { isMajor, isMinor, isPatch, latestVersion } = await getVersion(
-  "my-package",
-  version
+    "my-package",
+    version
 );
 if (isMajor || isMinor || isPatch)
-  console.log("new version available: ", latestVersion);
+    console.log("new version available: ", latestVersion);
 ```
 
 Major only
 
 ```js
 getVersion("my-package", currentVersion).then(({ isMajor, latestVersion }) => {
-  if (isMajor) console.log("new major version available: ", latestVersion);
+    if (isMajor) console.log("new major version available: ", latestVersion);
 });
 ```
 
@@ -213,7 +216,7 @@ Minor only
 
 ```js
 getVersion("my-package", currentVersion).then(({ isMinor, latestVersion }) => {
-  if (isMinor) console.log("new minor version available: ", latestVersion);
+    if (isMinor) console.log("new minor version available: ", latestVersion);
 });
 ```
 
@@ -221,7 +224,7 @@ Patch only
 
 ```js
 getVersion("my-package", currentVersion).then(({ isPatch, latestVersion }) => {
-  if (isPatch) console.log("new patch version available: ", latestVersion);
+    if (isPatch) console.log("new patch version available: ", latestVersion);
 });
 ```
 
@@ -229,13 +232,13 @@ Basically you can do anything
 
 ```js
 getVersion("my-package", currentVersion).then(
-  ({ isMinor, latestVersion, packageName }) => {
-    if (isMinor) {
-      console.log("new version available: ", latestVersion);
-      console.log(`run: npm i -g ${packageName} to update`);
-      //further functions
+    ({ isMinor, latestVersion, packageName }) => {
+        if (isMinor) {
+            console.log("new version available: ", latestVersion);
+            console.log(`run: npm i -g ${packageName} to update`);
+            //further functions
+        }
     }
-  }
 );
 ```
 
@@ -245,13 +248,13 @@ Automatic deprecation (when new major version)
 
 ```js
 getVersion("my-package", currentVersion).then(
-  ({ isMajor, latestVersion, packageName }) => {
-    if (isMajor) {
-      console.log("this version is deprecated");
-      console.log("latest version is required: ", latestVersion);
-      console.log(`run: npm i -g ${packageName} to update`);
-      process.exit(); // quit your program from running
+    ({ isMajor, latestVersion, packageName }) => {
+        if (isMajor) {
+            console.log("this version is deprecated");
+            console.log("latest version is required: ", latestVersion);
+            console.log(`run: npm i -g ${packageName} to update`);
+            process.exit(); // quit your program from running
+        }
     }
-  }
 );
 ```
